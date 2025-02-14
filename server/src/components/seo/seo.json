@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_seo_seos",
+  "info": {
+    "displayName": "seo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "metaTitle": {
+      "type": "string"
+    },
+    "metaKeywords": {
+      "type": "text"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "Allow_Indexing": {
+      "type": "boolean"
+    },
+    "Share_Image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.image"
+    },
+    "schema": {
+      "type": "json",
+      "required": true
+    }
+  }
+}

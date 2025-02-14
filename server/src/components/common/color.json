@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_common_colors",
+  "info": {
+    "displayName": "Color",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Hex_Code": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

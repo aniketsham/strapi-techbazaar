@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blogs",
+  "info": {
+    "singularName": "blog",
+    "pluralName": "blogs",
+    "displayName": "Blog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Summary": {
+      "type": "text"
+    },
+    "Body": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "SLUG": {
+      "type": "uid",
+      "targetField": "Title"
+    },
+    "Tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.tags"
+    },
+    "Image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.image"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "VideoUrl": {
+      "type": "string"
+    }
+  }
+}

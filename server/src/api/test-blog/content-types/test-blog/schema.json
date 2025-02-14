@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "test_blogs",
+  "info": {
+    "singularName": "test-blog",
+    "pluralName": "test-blogs",
+    "displayName": "testBlog",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Body": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3Njg2OTQzOTksImp0aSI6ImZkYTBkYzgwLWJhYjktNDZjNS1hYzgwLTU1NmMyMmI2MDc1NiIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMDJiYTk5ZDUifQ.K499zJD-QF4ZrhnzNxDFOyuv421wyr1rfr9WXZTi9jGci2ewc2-P-XXjU3r-VcvhjmwDL04FNVTUVrPrroXNFg",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_common_image_banners",
+  "info": {
+    "displayName": "Image_banner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Desktop_image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.image"
+    },
+    "Mobile_image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.image"
+    }
+  }
+}

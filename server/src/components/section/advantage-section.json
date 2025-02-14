@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_section_advantage_sections",
+  "info": {
+    "displayName": "Advantage_section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "advantages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::advantage.advantage"
+    },
+    "Button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.button"
+    }
+  }
+}

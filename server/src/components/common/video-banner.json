@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_common_video_banners",
+  "info": {
+    "displayName": "Video_banner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Desktop_video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.video"
+    },
+    "Mobile_video": {
+      "type": "component",
+      "repeatable": false,
+      "component": "common.video"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+# Global .gitignore for the entire project
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.package-lock.json
+.yarn-integrity
+
+# Logs
+logs/
+*.log
+*.gz
+logs/**/*.log
+npm-debug.log*
+
+# Temporary files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*.lock
+
+# Build outputs
+dist/
+build/
+.cache/
+.next/
+out/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Strapi (Server-Specific)
+server/node_modules/
+server/package-lock.json
+server/yarn.lock
+
+# Next.js (Client-Specific)
+client/node_modules/
+client/package-lock.json
+client/yarn.lock
+client/.next/
+client/out/
+
+# Local IDE/editor settings
+client/.idea/
+client/.vscode/
+server/.idea/
+server/.vscode/
+
+# Test coverage output
+coverage/
+**/coverage/
+
+# Miscellaneous
+*.bak
+*.backup
+*.swp
+*.swo
+
+# Global npm debug files
+npm-debug.log*
+pnpm-debug.log*
