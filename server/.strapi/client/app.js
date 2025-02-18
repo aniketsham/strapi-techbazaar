@@ -7,6 +7,7 @@ import ckeditor from "@ckeditor/strapi-plugin-ckeditor/strapi-admin";
 import strapiCloud from "@strapi/plugin-cloud/strapi-admin";
 import usersPermissions from "@strapi/plugin-users-permissions/strapi-admin";
 import strapiAlgolia from "strapi-plugin-strapi-algolia/strapi-admin";
+import customInputField from "../../src/plugins/custom-input-field/./dist/admin/index.mjs";
 import { renderAdmin } from "@strapi/strapi/admin";
 
 renderAdmin(document.getElementById("strapi"), {
@@ -16,5 +17,6 @@ renderAdmin(document.getElementById("strapi"), {
     "strapi-cloud": strapiCloud,
     "users-permissions": usersPermissions,
     "strapi-algolia": strapiAlgolia,
+    "custom-input-field": customInputField,
   },
 });

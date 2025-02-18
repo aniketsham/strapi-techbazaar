@@ -23,6 +23,15 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "IN": {
+      "type": "customField",
+      "customField": "plugin::custom-input-field.Input"
+    },
+    "prod_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }

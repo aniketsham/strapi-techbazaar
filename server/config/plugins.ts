@@ -21,9 +21,9 @@ export default ({ env }) => ({
       ],
     },
   },
-  "strapi-plugin-ckeditor": {
-    mediaEmbed: {
-      previewsInData: true,
-    },
+
+  "custom-input-field": {
+    enabled: true,
+    resolve: "./src/plugins/custom-input-field",
   },
 });

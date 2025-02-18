@@ -37,7 +37,8 @@
     "Image": {
       "type": "component",
       "repeatable": false,
-      "component": "common.image"
+      "component": "common.image",
+      "required": true
     },
     "seo": {
       "type": "component",

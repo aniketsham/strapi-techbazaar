@@ -42,16 +42,8 @@ const BlogTitlePage = ({ params }: { params: { slug: string } }) => {
               <BreadcrumbComponent
                 pages={[
                   {
-                    name: "Home",
-                    link: "/",
-                  },
-                  {
                     name: "Blog",
                     link: "/blog",
-                  },
-                  {
-                    name: blog.Title,
-                    link: `/blog/${blog.SLUG}`,
                   },
                 ]}
                 currentPage={blog.Title}

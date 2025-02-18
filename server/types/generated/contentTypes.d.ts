@@ -475,7 +475,8 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Image: Schema.Attribute.Component<'common.image', false>;
+    Image: Schema.Attribute.Component<'common.image', false> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::blog.blog'> &
       Schema.Attribute.Private;
@@ -717,9 +718,7 @@ export interface ApiNewsListNewsList extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     News_date: Schema.Attribute.String;
-    News_image: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    News_image: Schema.Attribute.Media<'images' | 'files' | 'audios'>;
     News_title: Schema.Attribute.String;
     News_url: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -805,7 +804,6 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Colors: Schema.Attribute.Component<'common.color', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -818,7 +816,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     Price: Schema.Attribute.BigInteger;
-    Product_image: Schema.Attribute.Component<'common.image', true>;
+    Product_image: Schema.Attribute.Component<'common.image', true> &
+      Schema.Attribute.Required;
     product_variants: Schema.Attribute.Relation<
       'oneToMany',
       'api::product-variant.product-variant'
@@ -957,12 +956,18 @@ export interface ApiTestBlogTestBlog extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    IN: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::custom-input-field.Input'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::test-blog.test-blog'
     > &
       Schema.Attribute.Private;
+    prod_category: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::category.category'
+    >;
     publishedAt: Schema.Attribute.DateTime;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

@@ -25,7 +25,6 @@
       "allowedTypes": [
         "images",
         "files",
-        "videos",
         "audios"
       ]
     },

@@ -21,12 +21,8 @@
     "Product_image": {
       "type": "component",
       "repeatable": true,
-      "component": "common.image"
-    },
-    "Colors": {
-      "type": "component",
-      "repeatable": true,
-      "component": "common.color"
+      "component": "common.image",
+      "required": true
     },
     "Ratings": {
       "type": "decimal",
