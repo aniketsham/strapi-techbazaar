@@ -969,6 +969,8 @@ export interface ApiTestBlogTestBlog extends Struct.CollectionTypeSchema {
       'api::category.category'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    relation: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::collection-toggle-plugin.RelationalField'>;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

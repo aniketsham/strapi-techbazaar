@@ -12,6 +12,7 @@ export default {
         id: `${PLUGIN_ID}.plugin.name`,
         defaultMessage: PLUGIN_ID,
       },
+
       Component: async () => {
         const { App } = await import('./pages/App');
 
@@ -24,6 +25,26 @@ export default {
       initializer: Initializer,
       isReady: false,
       name: PLUGIN_ID,
+    });
+
+    app.customFields.register({
+      name: 'RelationalField',
+      type: 'string',
+      pluginId: `${PLUGIN_ID}`,
+      //placeholder: 'This is a placeholder',
+      // component: UrlImage,
+      intlLabel: {
+        id: getTranslation('component.name'),
+        defaultMessage: 'Relational Field',
+      },
+      intlDescription: {
+        id: getTranslation('component.description'),
+        defaultMessage: 'Relational Field',
+      },
+      components: {
+        Input: async () => import('./components/RelationalField'),
+      },
+      icon: PluginIcon,
     });
   },
 

@@ -32,6 +32,10 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
+    },
+    "relation": {
+      "type": "customField",
+      "customField": "plugin::collection-toggle-plugin.RelationalField"
     }
   }
 }

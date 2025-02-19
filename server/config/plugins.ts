@@ -26,4 +26,8 @@ export default ({ env }) => ({
     enabled: true,
     resolve: "./src/plugins/custom-input-field",
   },
+  "collection-toggle-plugin": {
+    enabled: true,
+    resolve: "./src/plugins/collection-toggle-plugin",
+  },
 });

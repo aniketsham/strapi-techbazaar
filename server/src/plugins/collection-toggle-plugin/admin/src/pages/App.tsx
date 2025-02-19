@@ -5,10 +5,12 @@ import { HomePage } from './HomePage';
 
 const App = () => {
   return (
-    <Routes>
-      <Route index element={<HomePage />} />
-      <Route path="*" element={<Page.Error />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route index element={<HomePage />} />
+        <Route path="*" element={<Page.Error />} />
+      </Routes>
+    </>
   );
 };
 
