@@ -24,8 +24,8 @@ const PopularPosts = ({ tags }: any) => {
           `http://localhost:1337/api/blogs?populate[Image][populate]=*&${tagFilters}`
         );
 
-        // const response = await axios.get(
-        //   `http://localhost:1337/api/blogs?populate[Image][populate]=*&filters[Tags][Tag][$eq]=${tags[0].Tag}`
+        // const response = await axios.get(0
+        //   `http://localhost:1337/api/blogs?populate[Image][populate]=*&filters[Tags][Tag][$eq]=${tags[].Tag}`
         // );
         // // alert(JSON.stringify(response.data.data));
         setBlogPosts(response.data.data);

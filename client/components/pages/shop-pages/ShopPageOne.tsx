@@ -1,8 +1,10 @@
+"use client"
 import FilterProducts from "@/components/products/FilterProducts";
 import ShopPageContainer from "@/components/products/ShopPageContainer";
-import React, { Suspense } from "react";
+import React, { Suspense, use, useEffect } from "react";
 import Loader from "@/components/others/Loader";
 import BreadcrumbComponent from "@/components/others/Breadcrumb";
+import { useRouter } from "next/navigation";
 
 interface ShopPageOneProps {
   searchParams: {
@@ -18,6 +20,16 @@ interface ShopPageOneProps {
 }
 
 const ShopPageOne = ({ searchParams }: ShopPageOneProps) => {
+  const router=useRouter()
+  useEffect(()=>{
+    const getToken=async()=>{
+      const token=localStorage.getItem("jwt")
+      if(!token){
+        router.push("/login")
+    }}
+    
+    getToken()
+  },[])
   return (
     <section className="max-w-screen-xl flex gap-2 mx-auto p-2 md:p-8">
       <div className="hidden xl:block w-72">

@@ -8,10 +8,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { FaGoogle } from "react-icons/fa6";
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
 
 // Define Zod schema for form validation
 const signUpSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+  username: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
   confirmPassword: z.string().min(6, "Password must be at least 6 characters")
@@ -26,11 +27,39 @@ const SignUpForm = () => {
     formState: { errors },
     getValues,
   } = useForm<SignUpFormData>({
-    resolver: zodResolver(signUpSchema),
+    resolver: zodResolver(signUpSchema) ,
   });
 
-  const onSubmit = (data: SignUpFormData) => {
+  const router=useRouter()
+  const onSubmit =async (data: SignUpFormData) => {
+   try {
     console.log(data); // Handle form submission
+    if (data.password !== data.confirmPassword) {
+      alert("Password and Confirm Password must be same");
+      return;
+    }
+    console.log(data);
+    const data1 = {
+      username: data.username,
+      email: data.email,
+      password: data.password,
+    };
+    const response = await fetch("http://localhost:1337/api/auth/local/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data1),
+    });
+    const result = await response.json();
+    if(result.jwt){
+      localStorage.setItem("jwt", result.jwt);  
+      router.push("/");
+    }
+    // console.log(result);
+   } catch (error) {
+    console.log(error)
+   }
   };
 
   return (
@@ -58,13 +87,13 @@ const SignUpForm = () => {
               id="name"
               placeholder="shohag miah"
               className={`w-full border ${
-                errors.name ? "border-red-500" : "border-gray-300"
+                errors.username ? "border-red-500" : "border-gray-300"
               } dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none`}
-              {...register("name")}
+              {...register("username")}
             />
-            {errors.name && (
+            {errors.username && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.name.message}
+                {errors.username.message}
               </p>
             )}
           </div>

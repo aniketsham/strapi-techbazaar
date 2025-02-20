@@ -35,7 +35,7 @@ const TagsPage = ({ slug }: any) => {
   return (
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
       <div className="py-2">
-        <BreadcrumbComponent links={["/blog", "/tags"]} pageText={"Blog"} />
+        <BreadcrumbComponent pages={[{name:"blogs",link:"/blog"}]} currentPage={`${slug}`} />
       </div>
       <h2 className="text-3xl font-semibold text-center mb-8">
         Posts tagged: {slug}

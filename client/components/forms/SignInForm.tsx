@@ -8,10 +8,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { FaGoogle } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 // Define Zod schema for form validation
 const signInSchema = z.object({
-  email: z.string().email("Invalid email"),
+  identifier: z.string().email("Invalid email"),
   password: z.string().min(6, "Password must be at least 6 characters")
 });
 
@@ -25,11 +26,33 @@ const SignInForm = () => {
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
   });
-
-  const onSubmit = (data: SignInFormData) => {
+  
+  const router = useRouter();
+  const onSubmit = async(data: SignInFormData) => {
     console.log(data); // Handle form submission
+    try {
+      const response = await fetch("http://localhost:1337/api/auth/local", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
+      if(result.jwt){
+        localStorage.setItem("jwt", result
+        .jwt);  
+        router.push("/");
+      }
+      console.log(result);
+    } catch (error) {
+      console.log(error)
+    }
   };
-
+//   {
+//     "identifier":"anikets2408@gmail.com",
+//     "password":"123456"
+// }
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-950">
       <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-md w-full max-w-md">
@@ -55,13 +78,13 @@ const SignInForm = () => {
               id="email"
               placeholder="you@example.com"
               className={`w-full border ${
-                errors.email ? "border-red-500" : "border-gray-300"
+                errors.identifier ? "border-red-500" : "border-gray-300"
               } dark:border-gray-700 rounded-lg px-4 py-2 focus:outline-none`}
-              {...register("email")}
+              {...register("identifier")}
             />
-            {errors.email && (
+            {errors.identifier && (
               <p className="text-red-500 text-sm mt-1">
-                {errors.email.message}
+                {errors.identifier.message}
               </p>
             )}
           </div>
