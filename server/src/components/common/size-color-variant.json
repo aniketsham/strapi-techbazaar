@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_common_size_color_variants",
+  "info": {
+    "displayName": "SizeColor_variant",
+    "icon": "check",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Size": {
+      "type": "enumeration",
+      "enum": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "required": true
+    },
+    "Color": {
+      "type": "enumeration",
+      "enum": [
+        "Red",
+        "Blue",
+        "Green",
+        "Yellow",
+        "Black",
+        "White",
+        "Gray"
+      ],
+      "required": true
+    }
+  }
+}

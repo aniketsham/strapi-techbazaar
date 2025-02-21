@@ -553,6 +553,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     Message: Schema.Attribute.Text;
     Name: Schema.Attribute.String;
+    phone_Number: Schema.Attribute.BigInteger;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -742,21 +743,6 @@ export interface ApiProductVariantProductVariant
     draftAndPublish: true;
   };
   attributes: {
-    Colors: Schema.Attribute.Enumeration<
-      [
-        'Red',
-        'Blue',
-        'Green',
-        'Yellow',
-        'Black',
-        'White',
-        'Gray',
-        'Purple',
-        'Orange',
-        'Brown',
-      ]
-    > &
-      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -783,7 +769,10 @@ export interface ApiProductVariantProductVariant
       Schema.Attribute.Required;
     product: Schema.Attribute.Relation<'manyToOne', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
-    Sizes: Schema.Attribute.Enumeration<['XS', 'S', 'M', 'L', 'XL', 'XXL']> &
+    SizeColor_variant: Schema.Attribute.Component<
+      'common.size-color-variant',
+      true
+    > &
       Schema.Attribute.Required;
     SKU: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;

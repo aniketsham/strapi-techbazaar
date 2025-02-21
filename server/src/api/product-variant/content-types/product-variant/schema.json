@@ -18,22 +18,6 @@
       "target": "api::product.product",
       "inversedBy": "product_variants"
     },
-    "Colors": {
-      "type": "enumeration",
-      "enum": [
-        "Red",
-        "Blue",
-        "Green",
-        "Yellow",
-        "Black",
-        "White",
-        "Gray",
-        "Purple",
-        "Orange",
-        "Brown"
-      ],
-      "required": true
-    },
     "Materials": {
       "type": "enumeration",
       "enum": [
@@ -50,16 +34,10 @@
       ],
       "required": true
     },
-    "Sizes": {
-      "type": "enumeration",
-      "enum": [
-        "XS",
-        "S",
-        "M",
-        "L",
-        "XL",
-        "XXL"
-      ],
+    "SizeColor_variant": {
+      "type": "component",
+      "repeatable": true,
+      "component": "common.size-color-variant",
       "required": true
     },
     "SKU": {

@@ -23,6 +23,7 @@ const schema = z.object({
   name: z.string().min(3, "Name Is Required"),
   email: z.string().email("Invalid email").min(10, "Email is Required"),
   message: z.string().min(5, "Message Is Required"),
+  phone_number: z.string(),
   file: z
     .any()
     .refine((files) => files instanceof FileList && files.length > 0, {
@@ -59,10 +60,11 @@ const ContactForm: React.FC = () => {
           Name: data.name,
           Email: data.email,
           Message: data.message,
+          phone_Number:data.phone_number
         },
       });
-
-      const refId = response.data.data.id;
+      console.log(response.data)
+      const refId = response.data.id;
       console.log("Reference ID:", refId);
 
       const formData = new FormData();
@@ -76,10 +78,11 @@ const ContactForm: React.FC = () => {
         formData
       );
       console.log("Upload response:", uploadResponse);
-
+      alert("Form submitted successfully");
       console.log("Form submission successful");
       reset();
-    } catch (error) {
+    } catch (error:any) {
+      alert(error.response?.data?.error.message);
       console.error("Error submitting form:", error);
     } finally {
       setLoading(false);
@@ -116,6 +119,20 @@ const ContactForm: React.FC = () => {
               />
               {errors.email && (
                 <span className="text-red-500">{errors.email.message}</span>
+              )}
+            </div>
+            <div>
+              <Label htmlFor="phone_number">Phone Number</Label>
+              <Input
+                type="text"
+                id="phone_number"
+                autoComplete="tel"
+                {...register("phone_number")}
+              />
+              {errors.phone_number && (
+                <span className="text-red-500">
+                  {errors.phone_number.message}
+                </span>
               )}
             </div>
             <div>

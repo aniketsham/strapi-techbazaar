@@ -12,38 +12,34 @@ interface ProductColorSelectionProps {
   color: string;
   setColor: (value: string) => void;
   allColors: string[];
+  disabledColors: string[]; // Added the disabledColors prop
 }
-const colors = [
-  { name: "Red", hex: "#FF0000" },
-  { name: "Blue", hex: "#0000FF" },
-  { name: "Green", hex: "#008000" },
-  { name: "Yellow", hex: "#FFFF00" },
-  { name: "Black", hex: "#000000" },
-  { name: "White", hex: "#FFFFFF" },
-  { name: "Gray", hex: "#808080" },
-  { name: "Purple", hex: "#800080" },
-  { name: "Orange", hex: "#FFA500" },
-  { name: "Brown", hex: "#A52A2A" },
-];
+
 const ProductColorSelection = ({
   color: selectedColor,
   setColor,
   allColors,
+  disabledColors, // Destructure the disabledColors prop
 }: ProductColorSelectionProps) => {
   return (
     <div>
-      <p className="text-lg  mb-1">Colors</p>
+      <p className="text-lg mb-1">Colors</p>
       <div className="space-x-2">
         <TooltipProvider delayDuration={0}>
           {allColors?.map((color) => {
+            const isDisabled = disabledColors.includes(color); // Check if the color is disabled
+
             return (
               <Tooltip key={color}>
                 <TooltipTrigger>
                   <span
-                    onClick={() => setColor(color as string)}
+                    onClick={() => !isDisabled && setColor(color)} // Prevent change if color is disabled
                     className={cn(
                       "block w-8 h-8 rounded-full border border-spacing-4 opacity-80",
-                      selectedColor === color ? "ring-4" : "ring-0"
+                      selectedColor === color ? "ring-4" : "ring-0",
+                      isDisabled
+                        ? "cursor-not-allowed opacity-50" // Dim the color and disable pointer events for disabled colors
+                        : "cursor-pointer"
                     )}
                     style={{ backgroundColor: color }}
                   />

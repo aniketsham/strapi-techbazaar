@@ -58,6 +58,25 @@ export interface CommonMenuLink extends Struct.ComponentSchema {
   };
 }
 
+export interface CommonSizeColorVariant extends Struct.ComponentSchema {
+  collectionName: 'components_common_size_color_variants';
+  info: {
+    description: '';
+    displayName: 'SizeColor_variant';
+    icon: 'check';
+  };
+  attributes: {
+    Color: Schema.Attribute.Enumeration<
+      ['Red', 'Blue', 'Green', 'Yellow', 'Black', 'White', 'Gray']
+    > &
+      Schema.Attribute.Required;
+    Size: Schema.Attribute.Enumeration<
+      ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'XXXL']
+    > &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface CommonTags extends Struct.ComponentSchema {
   collectionName: 'components_common_tags';
   info: {
@@ -165,6 +184,7 @@ declare module '@strapi/strapi' {
       'common.image': CommonImage;
       'common.image-banner': CommonImageBanner;
       'common.menu-link': CommonMenuLink;
+      'common.size-color-variant': CommonSizeColorVariant;
       'common.tags': CommonTags;
       'common.video': CommonVideo;
       'common.video-banner': CommonVideoBanner;

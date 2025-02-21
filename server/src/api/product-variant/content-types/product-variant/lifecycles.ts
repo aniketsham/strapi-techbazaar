@@ -9,7 +9,7 @@ export default {
 
     // Generate SKU if not provided
     if (!data.SKU) {
-      data.SKU = `${color}-${size}-${material}`;
+      data.SKU = `${material}`;
     }
   },
 
@@ -23,6 +23,6 @@ export default {
 
     // Generate SKU if not provided
 
-    data.SKU = `${color}-${size}-${material}`;
+    data.SKU = `${material}`;
   },
 };

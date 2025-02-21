@@ -29,6 +29,9 @@
         "images",
         "files"
       ]
+    },
+    "phone_Number": {
+      "type": "biginteger"
     }
   }
 }
